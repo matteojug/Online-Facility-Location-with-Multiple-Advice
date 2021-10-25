@@ -1,0 +1,18 @@
+Tested on Ubuntu 20.04.2 LTS, gcc version 9.3.0, Python 3.8.5
+
+To setup the datasets
+ - Download raw data (data/raw/setup.sh)
+ - Download uber dataset from https://www.kaggle.com/fivethirtyeight/uber-pickups-in-new-york-city) and extract in data/raw
+
+To generate the instances:
+ - Run data/generate_instances.sh
+
+To compile the executable:
+ - Run make all
+
+To run the experiments:
+ - python3 run_all_synth.py -offline -online -m PROC_NUM
+ - python3 run_all_day.py -offline -m PROC_NUM
+ - python3 run_all_day.py -online -m PROC_NUM
+The run logs are saved in logs/, with each line using the format:
+algo_name   solution.cost   solution.facility_cost  solution.service_cost   solution.opened_facilities  solution.elapsed_ms
